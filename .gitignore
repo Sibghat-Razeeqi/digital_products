@@ -1,6 +1,4 @@
 media/
-db.sqlite3
-*.log
 
 # Virtual environment
 venv/
@@ -11,8 +9,10 @@ env/
 .idea/
 *.swp
 
-**/__pycache__/
+# Django
 *.pyc
-
+__pycache__/
+db.sqlite3
 **/migrations/*
 !**/migrations/__init__.py
+*.log
