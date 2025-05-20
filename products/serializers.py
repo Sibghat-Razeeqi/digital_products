@@ -9,9 +9,13 @@ class CategorySerializer(serializers.ModelSerializer):
     
         
 class FileSerializer(serializers.ModelSerializer):
+    file_type = serializers.ChoiceField(choices=File.FileType.choices, source='get_file_type_display')
+    def get_file_type_display(self, obj):
+        return obj.get_file_type_display()
+    
     class Meta:
         model = File
-        fields = ['title', 'file']
+        fields = ['id', 'title', 'file_type','file']
         read_only_fields = ['created_at', 'updated_at']       
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
